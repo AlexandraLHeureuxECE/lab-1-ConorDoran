@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="theme-selector">
+        <label for="themeSelect">Theme:</label>
+        <select id="themeSelect" aria-label="Choose color theme">
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+            <option value="retro">Retro</option>
+            <option value="ocean">Ocean</option>
+            <option value="sunset">Sunset</option>
+            <option value="forest">Forest</option>
+        </select>
+    </div>
+    <main class="game-container">
+        <h1>Tic-Tac-Toe</h1>
+
+        <div class="turn-display" id="turnDisplay">
+            Player X's turn
+        </div>
+
+        <div class="board" id="board">
+            <button class="cell" data-index="0" aria-label="Cell 1"></button>
+            <button class="cell" data-index="1" aria-label="Cell 2"></button>
+            <button class="cell" data-index="2" aria-label="Cell 3"></button>
+            <button class="cell" data-index="3" aria-label="Cell 4"></button>
+            <button class="cell" data-index="4" aria-label="Cell 5"></button>
+            <button class="cell" data-index="5" aria-label="Cell 6"></button>
+            <button class="cell" data-index="6" aria-label="Cell 7"></button>
+            <button class="cell" data-index="7" aria-label="Cell 8"></button>
+            <button class="cell" data-index="8" aria-label="Cell 9"></button>
+        </div>
+
+        <div class="message-overlay hidden" id="messageOverlay">
+            <p class="message-text" id="messageText"></p>
+        </div>
+
+        <button class="restart-btn" id="restartBtn">Restart Game</button>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

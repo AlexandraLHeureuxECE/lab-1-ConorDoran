@@ -1,0 +1,311 @@
+/* ===== Theme Variables ===== */
+:root,
+[data-theme="dark"] {
+    --bg-main: #1a1b26;
+    --bg-card: #24283b;
+    --border-color: #414868;
+    --text-primary: #c0caf5;
+    --text-muted: #565f89;
+    --accent-x: #7aa2f7;
+    --accent-o: #bb9af7;
+    --win-highlight: #9ece6a;
+    --win-bg: rgba(158, 206, 106, 0.25);
+    --cell-hover: #3b4261;
+    --btn-hover: #8fb4ff;
+    --btn-text: #1a1b26;
+    --shadow: rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] {
+    --bg-main: #f5f5f7;
+    --bg-card: #ffffff;
+    --border-color: #d1d5db;
+    --text-primary: #1f2937;
+    --text-muted: #6b7280;
+    --accent-x: #2563eb;
+    --accent-o: #7c3aed;
+    --win-highlight: #059669;
+    --win-bg: rgba(5, 150, 105, 0.15);
+    --cell-hover: #e5e7eb;
+    --btn-hover: #3b82f6;
+    --btn-text: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="retro"] {
+    --bg-main: #0d1117;
+    --bg-card: #161b22;
+    --border-color: #30363d;
+    --text-primary: #00ff41;
+    --text-muted: #00aa2a;
+    --accent-x: #00ffff;
+    --accent-o: #ff00ff;
+    --win-highlight: #ffff00;
+    --win-bg: rgba(255, 255, 0, 0.15);
+    --cell-hover: #21262d;
+    --btn-hover: #58a6ff;
+    --btn-text: #0d1117;
+    --shadow: rgba(0, 255, 65, 0.2);
+}
+
+[data-theme="ocean"] {
+    --bg-main: #0c1929;
+    --bg-card: #132f4c;
+    --border-color: #1e4976;
+    --text-primary: #b2ebf2;
+    --text-muted: #4dd0e1;
+    --accent-x: #29b6f6;
+    --accent-o: #ba68c8;
+    --win-highlight: #4db6ac;
+    --win-bg: rgba(77, 182, 172, 0.25);
+    --cell-hover: #1a3a5c;
+    --btn-hover: #4fc3f7;
+    --btn-text: #0c1929;
+    --shadow: rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="sunset"] {
+    --bg-main: #2d1b2e;
+    --bg-card: #3d2b3d;
+    --border-color: #5c3d5c;
+    --text-primary: #ffd6e0;
+    --text-muted: #c9a0b4;
+    --accent-x: #ff8a65;
+    --accent-o: #ffab91;
+    --win-highlight: #ffd54f;
+    --win-bg: rgba(255, 213, 79, 0.25);
+    --cell-hover: #4a354b;
+    --btn-hover: #ffab91;
+    --btn-text: #2d1b2e;
+    --shadow: rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="forest"] {
+    --bg-main: #1b2e1b;
+    --bg-card: #2d4a2d;
+    --border-color: #3d6b3d;
+    --text-primary: #c8e6c9;
+    --text-muted: #81c784;
+    --accent-x: #66bb6a;
+    --accent-o: #aed581;
+    --win-highlight: #ffeb3b;
+    --win-bg: rgba(255, 235, 59, 0.2);
+    --cell-hover: #385c38;
+    --btn-hover: #81c784;
+    --btn-text: #1b2e1b;
+    --shadow: rgba(0, 0, 0, 0.4);
+}
+
+/* ===== Reset & Base ===== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Fredoka', sans-serif;
+    background: var(--bg-main);
+    color: var(--text-primary);
+    padding: 1rem;
+}
+
+/* ===== Theme Selector ===== */
+.theme-selector {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.theme-selector label {
+    font-size: 0.9rem;
+}
+
+.theme-selector select {
+    font-family: inherit;
+    font-size: 0.9rem;
+    padding: 0.35rem 0.6rem;
+    border-radius: 6px;
+    border: 2px solid var(--border-color);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+/* ===== Game Container ===== */
+.game-container {
+    position: relative;
+    text-align: center;
+    max-width: 420px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+/* ===== Turn Display ===== */
+.turn-display {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    min-height: 2rem;
+    font-weight: 400;
+}
+
+.turn-display.player-x {
+    color: var(--accent-x);
+}
+
+.turn-display.player-o {
+    color: var(--accent-o);
+}
+
+.turn-display.game-over {
+    color: var(--text-muted);
+}
+
+/* ===== Board ===== */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    background: var(--border-color);
+    padding: 0.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    aspect-ratio: 1;
+    max-height: 360px;
+}
+
+.cell {
+    aspect-ratio: 1;
+    border: none;
+    border-radius: 8px;
+    background: var(--bg-card);
+    color: inherit;
+    font-family: inherit;
+    font-size: clamp(2rem, 8vw, 4rem);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.cell:hover:not(:disabled) {
+    background: var(--cell-hover);
+}
+
+.cell:active:not(:disabled) {
+    transform: scale(0.97);
+}
+
+.cell:disabled {
+    cursor: not-allowed;
+}
+
+.cell.x {
+    color: var(--accent-x);
+}
+
+.cell.o {
+    color: var(--accent-o);
+}
+
+.cell.winning {
+    background: var(--win-bg);
+    color: var(--win-highlight);
+}
+
+/* ===== Message Overlay ===== */
+.message-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 8px 32px var(--shadow);
+}
+
+.message-overlay.hidden {
+    display: none;
+}
+
+.message-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.message-overlay .message-text.win-x {
+    color: var(--accent-x);
+}
+
+.message-overlay .message-text.win-o {
+    color: var(--accent-o);
+}
+
+.message-overlay .message-text.draw {
+    color: var(--text-muted);
+}
+
+/* ===== Restart Button ===== */
+.restart-btn {
+    font-family: inherit;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 8px;
+    background: var(--accent-x);
+    color: var(--btn-text);
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.restart-btn:hover {
+    background: var(--btn-hover);
+}
+
+.restart-btn:active {
+    transform: scale(0.98);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+    .theme-selector {
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+
+    .theme-selector label,
+    .theme-selector select {
+        font-size: 0.8rem;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .turn-display {
+        font-size: 1rem;
+    }
+
+    .board {
+        gap: 0.35rem;
+        padding: 0.35rem;
+    }
+}
